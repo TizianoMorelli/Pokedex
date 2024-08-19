@@ -10,27 +10,35 @@
   <div class="row d-flex justify-content-center align-content-center">
 
 
-    <div class="col-6 text-center">
-      <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + (pokemon.id || 1) + '.png'" class="card-img-top img-fluid mb-2" [alt]="pokemon.name">
+    <div class="col-md-12 col-lg-6 text-center">
+      <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + (pokemon.id || 1) + '.png'" class="card-img-top img-fluid img-detail mb-2" [alt]="pokemon.name">
     </div>
 
-    <div class="col-6">
+    
+    <div class="col-md-12 text-lg-start text-center col-lg-6">
       <p class="fs-4"> {{ flavorText }} </p>
-      <div class="bg-secondary-subtle py-2 px-3">
-        <p><strong>Altezza:</strong> {{ pokemon.height/10 }} m</p>
-        <p><strong>Peso:</strong> {{ pokemon.weight /10 }} kg</p>
-        <div class="d-flex">
-          <p class="text-capitalize"><strong>Tipo:</strong>
-            @for ( type of pokemon.types; track $index) {
-              <div class="btn" [ngClass]="'type-' + type.type.name">
-                <p class="text-white">
-                  <span>{{ type.type.name | titlecase }}</span>
-                </p>
-              </div>
-            }
-          </p>
+      <div class="d-flex justify-content-center mt-2 mb-4 align-items-center">
+        <div class="type-container">
+          <div *ngFor="let type of pokemon.types" [ngClass]="'type-' + type.type.name" class="btn">
+            <p class="text-white">
+              <span>{{ type.type.name | titlecase }}</span>
+            </p>
+          </div>
         </div>
-      </div>    
+      </div>
+      <div class="row d-flex py-2 px-3">
+        <div class="col">
+          <div>
+            <p class="fs-6 text-capitalized fw-lighter">Altezza: {{ pokemon.height / 10 }} m</p>
+            <p class="fs-6 text-capitalized fw-lighter">Peso: {{ pokemon.weight / 10 }} kg</p>
+            @for (stat of pokemon.stats; track $index) {
+              <p class="fs-6 text-capitalized fw-lighter">{{ stat.stat.name }}: {{ stat.base_stat }}</p>
+            }
+            
+          </div>
+          
+        </div>  
+      </div>
     </div>
 
   </div>
