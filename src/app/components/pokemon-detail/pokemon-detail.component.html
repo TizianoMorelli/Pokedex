@@ -1,0 +1,12 @@
+
+<div>
+  <h2>{{ pokemon.name }}</h2>
+  <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
+  <p><strong>Height:</strong> {{ pokemon.height }}</p>
+  <p><strong>Weight:</strong> {{ pokemon.weight }}</p>
+  <p><strong>Types:</strong>
+    @for ( type of pokemon.types; track $index) {
+    <span>{{ type.type.name }} </span>
+    }
+  </p>
+</div>
