@@ -1,4 +1,4 @@
-<h2 class="mb-4 text-center">Lista dei Pokémon</h2>
+<h2 class="mb-4 text-center">Pokédex</h2>
 <div class="container">
   <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4">
 
@@ -16,9 +16,12 @@
 
             <div class="contentBx">
               <h3>
+                <p> N° {{ padOrder(pokemon.order) }} </p>
+
                 <a [routerLink]="['/pokemon', pokemon.name]" class="card-link link-offset-2 link-underline link-underline-opacity-0 text-center link-dark">
                   {{ pokemon.name | titlecase }}
                 </a>
+
               </h3>
             </div>
           </div>

@@ -7,6 +7,7 @@ interface Pokemon {
   name: string;
   imageUrl: string;
   type: string[];
+  order: number;
 }
 
 @Component({
@@ -34,7 +35,12 @@ export class PokemonListComponent implements OnInit {
   getPokemonDetails(pokemon: Pokemon, id: number) {
     this.pokemonService.getPokemonDetail(id.toString()).subscribe((details: any) => {
       pokemon.type = details.types.map((t: any) => t.type.name);
+      pokemon.order = details.order;
     });
+  }
+
+  padOrder(order: number): string {
+    return order.toString().padStart(4, '0');
   }
   
 }
