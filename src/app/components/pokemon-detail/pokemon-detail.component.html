@@ -1,19 +1,40 @@
 <div class="container mt-5">
   <div class="row d-flex justify-content-center align-content-center">
     <div class="col text-center text-capitalize">
-      <h2>{{ pokemon.name }}</h2>
+      <h2 class="fs-1">{{ pokemon.name }}</h2><p> N° {{ padOrder(pokemon.order) }} </p>
     </div>
   </div>
 </div>
 
-<div>
-  
-  <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
-  <p><strong>Height:</strong> {{ pokemon.height }}</p>
-  <p><strong>Weight:</strong> {{ pokemon.weight }}</p>
-  <p><strong>Types:</strong>
-    @for ( type of pokemon.types; track $index) {
-    <span>{{ type.type.name }} </span>
-    }
-  </p>
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center align-content-center">
+
+
+    <div class="col-6 text-center">
+      <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + (pokemon.id || 1) + '.png'" class="card-img-top img-fluid mb-2" [alt]="pokemon.name">
+    </div>
+
+    <div class="col-6">
+      <p class="fs-4"> {{ flavorText }} </p>
+      <div class="bg-secondary-subtle py-2 px-3">
+        <p><strong>Altezza:</strong> {{ pokemon.height/10 }} m</p>
+        <p><strong>Peso:</strong> {{ pokemon.weight /10 }} kg</p>
+        <div class="d-flex">
+          <p class="text-capitalize"><strong>Tipo:</strong>
+            @for ( type of pokemon.types; track $index) {
+              <div class="btn" [ngClass]="'type-' + type.type.name">
+                <p class="text-white">
+                  <span>{{ type.type.name | titlecase }}</span>
+                </p>
+              </div>
+            }
+          </p>
+        </div>
+      </div>    
+    </div>
+
+  </div>
 </div>
+
+
+
