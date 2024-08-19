@@ -1,15 +1,43 @@
 <h2 class="mb-4 text-center">Lista dei Pokémon</h2>
 <div class="container">
   <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4">
+
+    
     @for (pokemon of pokemonList; track pokemon.name) {
       <div class="col">
-        <div class="card h-100">
-          <div class="card-body d-flex flex-column align-items-center">
-            <img [src]="pokemon.imageUrl" class="card-img-top img-fluid mb-2" [alt]="pokemon.name" style="width: 96px; height: 96px; object-fit: contain;">
-            <a [routerLink]="['/pokemon', pokemon.name]" class="card-link link-offset-2 link-underline link-underline-opacity-0 text-center">
-              {{ pokemon.name | titlecase }}
-            </a>
+        <div class="card">
+          <div class="content">
+            <div class="imgBx">
+              <a [routerLink]="['/pokemon', pokemon.name]">
+                <img [src]="pokemon.imageUrl" class="card-img-top img-fluid mb-2" [alt]="pokemon.name">
+              </a>
+            </div>
+
+
+            <div class="contentBx">
+              <h3>
+                <a [routerLink]="['/pokemon', pokemon.name]" class="card-link link-offset-2 link-underline link-underline-opacity-0 text-center link-dark">
+                  {{ pokemon.name | titlecase }}
+                </a>
+              </h3>
+            </div>
           </div>
+
+
+          <div class="sci">
+              <div class="d-flex">
+                @for ( type of pokemon.type; track $index) {
+                  <div [ngClass]="'type-' + type">
+
+                    <p class="text-white type font-monospace fw-lighter">
+                      <span >{{ type | titlecase }} </span>
+                    </p>
+                  </div>
+                  }
+                </div>
+              </div>
+
+
         </div>
       </div>
     }

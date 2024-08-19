@@ -1,0 +1,262 @@
+/* Colori per i diversi tipi di Pokémon */
+/* Tipi di Pokémon e loro colori */
+.type-normal {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #A8A878;
+	/* Colore per il tipo Normale */
+}
+
+.type-fighting {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #C03028;
+	/* Colore per il tipo Lotta */
+}
+
+.type-flying {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #A890F0;
+	/* Colore per il tipo Volante */
+}
+
+.type-poison {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #A040A0;
+	/* Colore per il tipo Veleno */
+}
+
+.type-ground {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #E0C068;
+	/* Colore per il tipo Terra */
+}
+
+.type-rock {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #B8A038;
+	/* Colore per il tipo Roccia */
+}
+
+.type-bug {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #A8B820;
+	/* Colore per il tipo Coleottero */
+}
+
+.type-ghost {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #705898;
+	/* Colore per il tipo Spettro */
+}
+
+.type-steel {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #B8B8D0;
+	/* Colore per il tipo Acciaio */
+}
+
+.type-fire {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #F08030;
+	/* Colore per il tipo Fuoco */
+}
+
+.type-water {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #6890F0;
+	/* Colore per il tipo Acqua */
+}
+
+.type-grass {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #78C850;
+	/* Colore per il tipo Erba */
+}
+
+.type-electric {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #F8D030;
+	/* Colore per il tipo Elettro */
+}
+
+.type-psychic {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #F85888;
+	/* Colore per il tipo Psico */
+}
+
+.type-ice {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #98D8D8;
+	/* Colore per il tipo Ghiaccio */
+}
+
+.type-dragon {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #7038F8;
+	/* Colore per il tipo Drago */
+}
+
+.type-dark {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #705848;
+	/* Colore per il tipo Buio */
+}
+
+.type-fairy {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #F0A0A0;
+	/* Colore per il tipo Folletto */
+}
+
+.type-stellar {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #C6A24C;
+	/* Colore per il tipo Stellare */
+}
+
+.type-unknown {
+	padding: 0px 10px 0px;
+	margin: 0px 5px 0px;
+	height: 15px !important;
+	border-radius: 3px;
+	background-color: #6D6D6D;
+	/* Colore per il tipo Sconosciuto */
+}
+
+
+
+
+.container .card {
+	position: relative;
+	background: rgba(255, 255, 255, 0.05);
+	margin: 5px;
+	border-radius: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	backdrop-filter: blur(10px);
+}
+
+.container .card .content {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	transition: 0.5s;
+}
+
+.container .card:hover .content {
+	transform: translateY(-10px);
+}
+
+.container .card .content .imgBx {
+	position: relative;
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+}
+
+.container .card .content .imgBx img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.container .card .content .contentBx h3 {
+	color: #000000;
+	letter-spacing: 2px;
+	font-weight: 500;
+	font-size: 18px;
+	text-align: center;
+	margin: 10px 10px 10px;
+	line-height: 1.1em;
+}
+
+.container .card .content .contentBx h3 span {
+	font-size: 12px;
+	font-weight: 300;
+	text-transform: initial;
+}
+
+.container .card .sci {
+	position: relative;
+	display: flex;
+}
+
+.container .card .sci div {
+	list-style: none;
+	transform: translateY(5px);
+	transition: 0.5s;
+	opacity: 0;
+}
+
+.container .card:hover .sci div {
+	transform: translateY(0px);
+	opacity: 1;
+	margin-bottom: 5px !important;
+}
+
+.type {
+	font-size: 10px;
+}
