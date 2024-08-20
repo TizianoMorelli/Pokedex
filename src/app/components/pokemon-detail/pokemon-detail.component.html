@@ -1,20 +1,21 @@
-
-
-<div class="navigation">
-  <div class="nav-button prev" *ngIf="previousPokemonName">
-    <button (click)="previousPokemon()">
-      <span class="text-capitalize">N° {{ previousPokemonId }} {{ previousPokemonName }}</span>
-      <span>&larr;</span>
-    </button>
-  </div>
-  
-  <div class="nav-button next" *ngIf="nextPokemonName">
-    <button (click)="nextPokemon()">
-      <span class="text-capitalize">{{ nextPokemonName }} N° {{ nextPokemonId }}</span>
-      <span>&rarr;</span>
-    </button>
+<div class="container">
+  <div class="navigation">
+    <div class="nav-button prev" *ngIf="previousPokemonName">
+      <button (click)="previousPokemon()">
+        <span class="text-capitalize text-white">N° {{ previousPokemonId }} {{ previousPokemonName }}</span>
+        <span>&larr;</span>
+      </button>
+    </div>
+    
+    <div class="nav-button next" *ngIf="nextPokemonName">
+      <button (click)="nextPokemon()">
+        <span class="text-capitalize text-white">{{ nextPokemonName }} N° {{ nextPokemonId }}</span>
+        <span>&rarr;</span>
+      </button>
+    </div>
   </div>
 </div>
+
 
 
 

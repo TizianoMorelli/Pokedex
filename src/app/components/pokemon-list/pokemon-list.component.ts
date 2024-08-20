@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PokemonService } from '../../services/pokemon.service';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms'; 
 
 interface Pokemon {
   name: string;
@@ -13,23 +14,27 @@ interface Pokemon {
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.css'
 })
 export class PokemonListComponent implements OnInit {
   pokemonList: Pokemon[] = [];
+  filteredPokemonList: Pokemon[] = [];
+  searchTerm: string = '';
 
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
     this.pokemonService.getPokemonList().subscribe((response: any) => {
       this.pokemonList = response.results;
-      this.pokemonList.forEach((pokemon, index) => {
+      this.filteredPokemonList = [...this.pokemonList];
+      this.pokemonList.forEach((pokemon) => {
         this.getPokemonDetails(pokemon);
       });
     });
   }
+  
 
   getPokemonDetails(pokemon: Pokemon) {
     // Ottieni i dettagli di ciascun Pokémon utilizzando il nome
@@ -44,4 +49,13 @@ export class PokemonListComponent implements OnInit {
   padOrder(order: number): string {
     return order.toString().padStart(4, '0');
   }
+
+  searchPokemon() {
+    console.log('Search term:', this.searchTerm);  // Debug: log della ricerca
+    this.filteredPokemonList = this.pokemonList.filter(pokemon =>
+      pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+    console.log('Filtered list:', this.filteredPokemonList);  // Debug: log della lista filtrata
+  }
+  
 }

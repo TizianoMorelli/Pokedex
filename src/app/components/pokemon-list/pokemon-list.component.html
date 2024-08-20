@@ -1,48 +1,38 @@
-<h2 class="mb-4 text-center">Pokédex</h2>
+<form class="d-flex">
+  <input class="form-control me-2" type="search" [(ngModel)]="searchTerm" (input)="searchPokemon()" name="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success" type="submit" (click)="searchPokemon()">Search</button>
+</form>
+
+<h2 class="mb-4 text-center font-monospace">Pokédex</h2>
 <div class="container">
   <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4">
-
-    
-    @for (pokemon of pokemonList; track pokemon.name) {
-      <div class="col">
-        <a class="link" [routerLink]="['/pokemon', pokemon.name]">
+    <div class="col" *ngFor="let pokemon of filteredPokemonList">
+      <a class="link" [routerLink]="['/pokemon', pokemon.name]">
         <div class="card">
           <div class="content">
             <div class="imgBx">
-                <img [src]="pokemon.imageUrl" class="card-img-top img-fluid mb-2" [alt]="pokemon.name">
-              </div>
-              
-              
-              <div class="contentBx">
-                <h3>
-                  <p> N° {{ padOrder(pokemon.order) }} </p>
-                  
-                  <a [routerLink]="['/pokemon', pokemon.name]" class="card-link link-offset-2 link-underline link-underline-opacity-0 text-center link-dark">
-                    {{ pokemon.name | titlecase }}
-                  </a>
-                  
-                </h3>
-              </div>
+              <img [src]="pokemon.imageUrl" class="card-img-top img-fluid mb-2" [alt]="pokemon.name">
             </div>
-            
-            
-            <div class="sci">
-              <div class="d-flex">
-                @for ( type of pokemon.type; track $index) {
-                  <div [ngClass]="'type-' + type">
-                    
-                    <p class="text-white type font-monospace fw-lighter">
-                      <span >{{ type | titlecase }} </span>
-                    </p>
-                  </div>
-                }
-              </div>
+            <div class="contentBx">
+              <h3>
+                <p> N° {{ padOrder(pokemon.order) }} </p>
+                <a [routerLink]="['/pokemon', pokemon.name]" class="card-link link-offset-2 link-underline link-underline-opacity-0 text-center link-dark">
+                  {{ pokemon.name | titlecase }}
+                </a>
+              </h3>
             </div>
-            
-            
           </div>
-        </a>
-      </div>
-    }
+          <div class="sci">
+            <div class="d-flex">
+              <div *ngFor="let type of pokemon.type" [ngClass]="'type-' + type">
+                <p class="text-white type font-monospace fw-lighter">
+                  <span>{{ type | titlecase }} </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
