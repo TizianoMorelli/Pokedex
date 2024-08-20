@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
+  
+  getAllPokemonNames() {
+    throw new Error('Method not implemented.');
+  }
   private apiUrl = 'https://pokeapi.co/api/v2/'; // Definisci 'apiUrl'
 
   constructor(private http: HttpClient) {}
@@ -23,4 +27,13 @@ export class PokemonService {
   getPokemonSpeciesDetail(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}pokemon-species/${id}`);
   }
+
+  getAbilityDetail(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}ability/${id}`);
+  }
+
+  getPokemonDetailById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/pokemon/${id}`);
+  }
+  
 }

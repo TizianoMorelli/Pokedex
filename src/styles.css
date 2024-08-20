@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+body {
+    background-image: url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
+    
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

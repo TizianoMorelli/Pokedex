@@ -26,21 +26,22 @@ export class PokemonListComponent implements OnInit {
     this.pokemonService.getPokemonList().subscribe((response: any) => {
       this.pokemonList = response.results;
       this.pokemonList.forEach((pokemon, index) => {
-        pokemon.imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`;
-        this.getPokemonDetails(pokemon, index + 1);
+        this.getPokemonDetails(pokemon);
       });
     });
   }
 
-  getPokemonDetails(pokemon: Pokemon, id: number) {
-    this.pokemonService.getPokemonDetail(id.toString()).subscribe((details: any) => {
+  getPokemonDetails(pokemon: Pokemon) {
+    // Ottieni i dettagli di ciascun Pokémon utilizzando il nome
+    this.pokemonService.getPokemonDetail(pokemon.name).subscribe((details: any) => {
+      // Usa l'ID del Pokémon dai dettagli per generare l'URL dell'immagine e l'ordine corretto
+      pokemon.imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${details.id}.png`;
       pokemon.type = details.types.map((t: any) => t.type.name);
-      pokemon.order = details.order;
+      pokemon.order = details.id;  // Usa l'ID del Pokémon come ordine
     });
   }
 
   padOrder(order: number): string {
     return order.toString().padStart(4, '0');
   }
-  
 }

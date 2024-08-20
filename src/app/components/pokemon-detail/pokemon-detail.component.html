@@ -1,13 +1,35 @@
+
+
+<div class="navigation">
+  <div class="nav-button prev" *ngIf="previousPokemonName">
+    <button (click)="previousPokemon()">
+      <span class="text-capitalize">N° {{ previousPokemonId }} {{ previousPokemonName }}</span>
+      <span>&larr;</span>
+    </button>
+  </div>
+  
+  <div class="nav-button next" *ngIf="nextPokemonName">
+    <button (click)="nextPokemon()">
+      <span class="text-capitalize">{{ nextPokemonName }} N° {{ nextPokemonId }}</span>
+      <span>&rarr;</span>
+    </button>
+  </div>
+</div>
+
+
+
 <div class="container mt-5">
   <div class="row d-flex justify-content-center align-content-center">
     <div class="col text-center text-capitalize">
-      <h2 class="fs-1">{{ pokemon.name }}</h2><p> N° {{ padOrder(pokemon.order) }} </p>
+      <h2 class="fs-1">{{ pokemon.name }}</h2>
+      <p> N° {{ padOrder(pokemon.id) }} </p>
     </div>
   </div>
 </div>
 
+
 <div class="container mt-5">
-  <div class="row d-flex justify-content-center align-content-center">
+  <div class="row d-flex justify-content-center align-items-center">
 
 
     <div class="col-md-12 col-lg-6 text-center">
@@ -16,33 +38,50 @@
 
     
     <div class="col-md-12 text-lg-start text-center col-lg-6">
-      <p class="fs-4"> {{ flavorText }} </p>
-      <div class="d-flex justify-content-center mt-2 mb-4 align-items-center">
+      <p class="fs-5"> {{ flavorText }} </p>
+      <div class="d-flex justify-content-center justify-content-lg-start mt-2 mb-4 align-items-center">
         <div class="type-container">
-          <div *ngFor="let type of pokemon.types" [ngClass]="'type-' + type.type.name" class="btn">
-            <p class="text-white">
+          <div *ngFor="let type of pokemon.types" [ngClass]="'type-' + type.type.name">
+            <p class="text-white text-center text-lg-start">
               <span>{{ type.type.name | titlecase }}</span>
             </p>
           </div>
         </div>
       </div>
+      
       <div class="row d-flex py-2 px-3">
         <div class="col">
+          <h5 class="mb-4">Informazioni</h5>
           <div>
             <p class="fs-6 text-capitalized fw-lighter">Altezza: {{ pokemon.height / 10 }} m</p>
             <p class="fs-6 text-capitalized fw-lighter">Peso: {{ pokemon.weight / 10 }} kg</p>
             @for (stat of pokemon.stats; track $index) {
-              <p class="fs-6 text-capitalized fw-lighter">{{ stat.stat.name }}: {{ stat.base_stat }}</p>
+              <p class="fs-6 text-capitalize fw-lighter">{{ stat.stat.name }} - {{ stat.base_stat }}</p>
             }
             
           </div>
           
         </div>  
+        <div class="col">
+          <ul>
+            <h5 class="mb-4">Abilità</h5>
+            
+            @for (ability of italianAbilityNames; track $index) {
+              <li class="list-group-item">
+                <p class="text-capitalize">
+                  {{ ability }} 
+                </p>
+              </li>
+            }
+          </ul>
+        </div>
       </div>
     </div>
 
   </div>
 </div>
+
+
 
 
 
