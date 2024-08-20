@@ -191,13 +191,14 @@
 
 .container .card {
 	position: relative;
-	background: rgba(255, 255, 255, 0.05);
+	background: rgba(0, 0, 0, 0.099);
 	margin: -5px;
 	border-radius: 15px;
+	border-color: #ee5281;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	backdrop-filter: blur(6px);
+	backdrop-filter: blur(5px);
 }
 
 .container .card .content {
@@ -266,3 +267,47 @@
 .type {
 	font-size: 10px;
 }
+
+
+
+.box {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+  }
+  
+  .input {
+	padding: 10px;
+	width: 100px; /* Imposta inizialmente la larghezza a zero */
+	height: 30px;
+	background: rgba(105, 105, 105, 0.099);
+	border: 1.5px solid #ee5281;
+	border-radius: 15px; /* Bordo arrotondato */
+	box-sizing: border-box;
+	font-size: 15px;
+	color: #ee5281;
+	outline: none;
+	text-align: center;
+	transition: width 0.5s ease, background 0.5s ease; /* Animazioni per l'espansione e il colore di sfondo */
+  }
+  
+  .box:hover .input {
+	width: 300px; /* Larghezza espansa */
+  }
+  
+  .box i {
+	position: absolute;
+	top: 50%;
+	left: 10px; /* Posiziona l'icona all'inizio dell'input */
+	transform: translateY(-50%);
+	font-size: 20px;
+	color: #ee5281; /* Colore dell'icona */
+	transition: opacity 0.3s ease;
+  }
+  
+  .box:hover i {
+	opacity: 0; /* Nascondi l'icona quando l'input si espande */
+  }
+  
